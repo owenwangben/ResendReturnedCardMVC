@@ -22,18 +22,20 @@ namespace ResendReturnedCard.Models
     public class ResendReturnedCardGetDataResultModel
     {
         public List<sp_CampaignCallList_Resend_Request_Item> Items { get; set; }
+        public List<string> card { get; set; }
+        public string addres { get; set; }
     }
     public class sp_CampaignCallList_Resend_Request_Item
-        {
+    {
         public string ID { get; set; }
-       
+
         public string CardNo { get; set; }
         public string CardName { get; set; }
-        
+
         public string HomeAddr { get; set; }
-        
+
         public string CompanyAddr { get; set; }
-        
+
         public string RegisterAddr { get; set; }
 
         public string MaskedCarNo => MaskCardNo(CardNo);

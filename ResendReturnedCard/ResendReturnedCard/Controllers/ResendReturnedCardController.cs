@@ -27,32 +27,6 @@ namespace ResendReturnedCard.Controllers
             _webApiInvoker = new WebApiInvoker(httpClient);
         }
 
-        public async Task<ActionResult> Index()
-        {
-            var cardId = "A900000794";
-            var requestModel = new RequestModel
-            {
-                Content = new ContentModel
-                {
-                    ID = cardId
-                }
-            };
-            // 調用API獲取資料，BaseResponse為泛型類別，包含ResendReturnedCardGetDataResultModel型別資料。("API的URL" , "發送給API的請求資料")
-            var response = await _webApiInvoker.PostAsync<BaseResponse<ResendReturnedCardGetDataResultModel>>("http://localhost:3000/api/Apply/QueryReturnedCardInfo", requestModel);
-
-            if (response.ResultCode == "00" && response.Result.Items != null && response.Result.Items.Any())
-            {
-                // 將資料傳遞視圖
-                return View(response.Result);
-            }
-            else
-            {
-                // 錯誤或沒有取到資料
-                ViewBag.ErrorMessage = string.IsNullOrEmpty(response.ResultMessage) ? "無法獲取卡片資料" : response.ResultMessage;
-                return View("Error"); // 跳轉到一個顯示錯誤
-            }
-        }
-
         //GET:step1
 
         public async Task<ActionResult> Step1()
@@ -82,15 +56,15 @@ namespace ResendReturnedCard.Controllers
         }
         //POST
         [HttpPost]
-        public ActionResult Step1(IEnumerable<string> card,string addres)
+        public ActionResult Step1(ResendReturnedCardGetDataResultModel model)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid && model.addres != null)
             {
-            Session["addres"] = addres;
-            Session["card"] = card;
+            Session["addres"] = model.addres;
+            Session["card"] = model.card;
             return RedirectToAction("Step2");
             }
-            return View("Error");
+            return RedirectToAction("Step1");
         }
 
 

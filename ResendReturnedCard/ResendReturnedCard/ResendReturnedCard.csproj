@@ -433,10 +433,8 @@
     <Content Include="Views\ResendReturnedCard\Step1.cshtml" />
     <Content Include="Views\ResendReturnedCard\Step2.cshtml" />
     <Content Include="Views\ResendReturnedCard\Step3.cshtml" />
-    <Content Include="Views\ResendReturnedCard\Index.cshtml" />
     <Content Include="Scripts\scripts.securejs" />
     <Content Include="Scripts\splide.min.securejs" />
-    <Content Include="Views\ResendReturnedCard\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

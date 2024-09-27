@@ -91,6 +91,7 @@
                             </table>
                         </section>
                     </div>
+
                     <div class="content full-content">
                         <section class="trans-content">
                             <table class="new-datatable">
@@ -139,76 +140,15 @@
                     </div>
                 </div>
             </div>
-            
-            @*  @{
-                    var cardAddresses = Model.Items.ToDictionary(
-                        item => item.CardNo,
-                        item => new
-                        {
-                            address1 = item.HomeAddr,
-                            address2 = item.RegisterAddr,
-                            address3 = item.CompanyAddr
-                        }
-                        );
-                    var cardAddrJson = Newtonsoft.Json.JsonConvert.SerializeObject(cardAddresses);
-                }*@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
             <script>
-
-            $(document).ready(function () {
-                $('input[name="addres"]').change(function () {
-                    var value = $(this).val();
-                    $('input[name="addres"]').next().next().hide();
-                    $(this).next().next().show();
-                });
-            });
-
-           @* $(document).ready(function () {
-                var cardAddresses = @Html.Raw(cardAddrJson);
-
-                $('input.card-checkbox').change(function () {
-                    var selectedCardNo = $(this).val();
-                    $('.address-field input').val('');
-                    if (cardAddresses[selectedCardNo]) {
-                        var addresses = cardAddresses[selectedCardNo];
-                        console.log(addresses);
-                        $('input[name="addres"]:checked').each(function () {
-                        var addrType = $(this).val();
-                        var addrField = $('.address-field[data-address-type="' + addrType + '"] input');
-
-                        addrField.val(addresses['address' + addrType]);
-                            addrField.prop('disabled', false);
-                        });
-                    }
-                });
-
-                $('input[name = "addres"]').change(function () {
-                    var value = $(this).val();
-                    $('.address-field').hide();
-                    $('.address-field[data-address-type="' + value + '"]').show();
-                });
-            });
-
-            function updateAddr(selectedCardNo) {
-                var items = @Html.Raw(Json.Encode(Model.Items));
-                var selectedCard = items.find(card => card.CardNo === selectedCardNo);
-
-                var addrInputs = document.querySelectorAll('.artfld col-all-min');
-                if (selectedCard) {
-                    addrInputs[0].value = selectedCard.HomeAddr || '';
-                    addrInputs[1].value = selectedCard.RegisterAddrAddr || '';
-                    addrInputs[2].value = selectedCard.CompanyAddr || '';
-                }
-                else {
-                    addrInputs.forEach(input => {
-                        input.value = '';
+                $(document).ready(function () {
+                    $('input[name="addres"]').change(function () {
+                        var value = $(this).val();
+                        $('input[name="addres"]').next().next().hide();
+                        $(this).next().next().show();
                     });
-                };
-            };*@
-
-
-
+                });
             </script>
         </div>
     </div>

@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{756F9F69-BEC4-429E-BBE7-D44A6D3A65D2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ResendReturnedCard</RootNamespace>
+    <AssemblyName>ResendReturnedCard</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44333</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.6.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ResendReturnedCardController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResendReturnedCardGetDataResultModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\WebApiInvoker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="osprey-mock-service\examples\bank.index.html" />
+    <Content Include="osprey-mock-service\examples\FooterBar.js" />
+    <Content Include="osprey-mock-service\examples\Menubar.js" />
+    <Content Include="osprey-mock-service\examples\m_menubar.js" />
+    <Content Include="osprey-mock-service\examples\ws_Adv.js" />
+    <Content Include="pd_online_account\card_returnApply\step1.html" />
+    <Content Include="pd_online_account\card_returnApply\step2.html" />
+    <Content Include="pd_online_account\card_returnApply\step3-fail.html" />
+    <Content Include="pd_online_account\card_returnApply\step3.html" />
+    <Content Include="pd_online_account\css\carousel.css" />
+    <Content Include="pd_online_account\css\jpreloader.css" />
+    <Content Include="pd_online_account\css\splide.min.css" />
+    <Content Include="pd_online_account\css\styles.css" />
+    <Content Include="pd_online_account\images\banner\18ec1fdc80100000457e.jpg" />
+    <Content Include="pd_online_account\images\banner\18ec202f6e2000002ef1.jpg" />
+    <Content Include="pd_online_account\images\banner\18ec66ca03a00000a2c2.jpg" />
+    <Content Include="pd_online_account\images\banner\18f2c96da6d000002c5a.jpg" />
+    <Content Include="pd_online_account\images\icon-error.svg" />
+    <Content Include="pd_online_account\images\icon-tick.svg" />
+    <Content Include="pd_online_account\images\sinopac-logo-min.svg" />
+    <Content Include="pd_online_account\images\sinopac-logo.svg" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="osprey-mock-service\api.raml" />
+    <Content Include="osprey-mock-service\examples\activatecard.json" />
+    <Content Include="osprey-mock-service\examples\ActivityCheckStatus.json" />
+    <Content Include="osprey-mock-service\examples\Agreement\GetAgreementData.json" />
+    <Content Include="osprey-mock-service\examples\Agreement\InsertAgreementRecord.json" />
+    <Content Include="osprey-mock-service\examples\AllMemberCards.json" />
+    <Content Include="osprey-mock-service\examples\ApplicationCardInfo.json" />
+    <Content Include="osprey-mock-service\examples\ApplicationStatusWorkflow.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCardDupCheck.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCardStep.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCardTermsUrl.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCard\AuthOtherBankWithLimitedTimes.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCard\CheckApplyCardGroup.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCard\CheckToken.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCard\DsQrCodeGenerator.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCard\GetShareHoldingInfo.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCard\UpdateApplyStatus.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCashAdvance.json" />
+    <Content Include="osprey-mock-service\examples\ApplyCashAdvancePwd.json" />
+    <Content Include="osprey-mock-service\examples\ApplyDebitCard.json" />
+    <Content Include="osprey-mock-service\examples\ApplyStmtInstallment.json" />
+    <Content Include="osprey-mock-service\examples\ApplyTemporaryCredit.json" />
+    <Content Include="osprey-mock-service\examples\Apply\ApplyLostCards.json" />
+    <Content Include="osprey-mock-service\examples\Apply\CreditRefundApply.json" />
+    <Content Include="osprey-mock-service\examples\Apply\CreditRefundCheck.json" />
+    <Content Include="osprey-mock-service\examples\Apply\CreditRefundGetData.json" />
+    <Content Include="osprey-mock-service\examples\Apply\PriorActivateCard.json" />
+    <Content Include="osprey-mock-service\examples\Apply\QueryLostCards.json" />
+    <Content Include="osprey-mock-service\examples\Apply\QueryPriorActivateCardInfo.json" />
+    <Content Include="osprey-mock-service\examples\Apply\QueryReturnedCardInfo.json" />
+    <Content Include="osprey-mock-service\examples\Apply\ResendReturnedCard.json" />
+    <Content Include="osprey-mock-service\examples\auth.json" />
+    <Content Include="osprey-mock-service\examples\AuthByBirthday.json" />
+    <Content Include="osprey-mock-service\examples\AuthByCardNo.json" />
+    <Content Include="osprey-mock-service\examples\AuthByLast8CardNo.json" />
+    <Content Include="osprey-mock-service\examples\AuthOtherCardWithLimitedTimes.json" />
+    <Content Include="osprey-mock-service\examples\AutoDeduct\ApplyAutoDeduct.json" />
+    <Content Include="osprey-mock-service\examples\AutoDeduct\AuthAutoDeduct.json" />
+    <Content Include="osprey-mock-service\examples\AutoDeduct\GetAutoDeduct.json" />
+    <Content Include="osprey-mock-service\examples\AutoDeduct\GetAutoDeductAccount.json" />
+    <Content Include="osprey-mock-service\examples\AutoDeduct\SetAutoDeductAmt.json" />
+    <Content Include="osprey-mock-service\examples\AutoDeduct\SetAutoDeductType.json" />
+    <Content Include="osprey-mock-service\examples\BillAnalyticsByCategory.json" />
+    <Content Include="osprey-mock-service\examples\BillAnalyticsByMonth.json" />
+    <Content Include="osprey-mock-service\examples\Bonus2018Q1AvailableTx.json" />
+    <Content Include="osprey-mock-service\examples\Bonus2018Q1ExchangeRecord.json" />
+    <Content Include="osprey-mock-service\examples\Bonus2018Q1GiftExchange.json" />
+    <Content Include="osprey-mock-service\examples\Bonus2018Q1Gifts.json" />
+    <Content Include="osprey-mock-service\examples\Bonus2018Q1IsOpen.json" />
+    <Content Include="osprey-mock-service\examples\Bonus2018Q1Verification.json" />
+    <Content Include="osprey-mock-service\examples\BonusPoint.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryCashFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryDawayFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryDawhoFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryDcurFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryFeedbackMenu.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryForeignFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryForeignFeedbackActionName.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryMitsuiFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QuerySportFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryTopCardFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\QueryTopCardMenu.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\TPointsQueryFeedback.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\TPointsRedemptionRecords.json" />
+    <Content Include="osprey-mock-service\examples\Bonus\TPointsSetting.json" />
+    <Content Include="osprey-mock-service\examples\CanApplyWealthUnlimiteCard.json" />
+    <Content Include="osprey-mock-service\examples\Carbon\GetAgreementData.json" />
+    <Content Include="osprey-mock-service\examples\Carbon\GetCarbonTrx.json" />
+    <Content Include="osprey-mock-service\examples\Carbon\InsertAgreementRecord.json" />
+    <Content Include="osprey-mock-service\examples\Carbon\IsEligibleCard.json" />
+    <Content Include="osprey-mock-service\examples\CardsByPrimary.json" />
+    <Content Include="osprey-mock-service\examples\ChangeCashAdvancePwd.json" />
+    <Content Include="osprey-mock-service\examples\CheckCardMember.json" />
+    <Content Include="osprey-mock-service\examples\CheckDebitCardApply.json" />
+    <Content Include="osprey-mock-service\examples\CheckIsHoliday.json" />
+    <Content Include="osprey-mock-service\examples\clearauth.json" />
+    <Content Include="osprey-mock-service\examples\CompleteUploadFile.json" />
+    <Content Include="osprey-mock-service\examples\CustomerServiceTelApply.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\GetNotifyInfo.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\GetResendStmtInfo.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\LatestTx.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\ResendStatement.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\SetNotify.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\StatementAnalyticsByCategory.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\StatementAnalyticsByMonth.json" />
+    <Content Include="osprey-mock-service\examples\DebitCard\StatementInquiry.json" />
+    <Content Include="osprey-mock-service\examples\DisplayCardPwd.json" />
+    <Content Include="osprey-mock-service\examples\EasyCashCalcCycleFee.json" />
+    <Content Include="osprey-mock-service\examples\EasyChoiceApply.json" />
+    <Content Include="osprey-mock-service\examples\EasyChoiceApplyRecord.json" />
+    <Content Include="osprey-mock-service\examples\End2End\GetCert.json" />
+    <Content Include="osprey-mock-service\examples\ExchangeRecord.json" />
+    <Content Include="osprey-mock-service\examples\FeedbackAnalyticsByMonth.json" />
+    <Content Include="osprey-mock-service\examples\FirstFactorAuth.json" />
+    <Content Include="osprey-mock-service\examples\GenerateOTP.json" />
+    <Content Include="osprey-mock-service\examples\GenerateShortUrl.json" />
+    <Content Include="osprey-mock-service\examples\GetBankAccounts.json" />
+    <Content Include="osprey-mock-service\examples\GetBankList.json" />
+    <Content Include="osprey-mock-service\examples\GetBillExcel.json" />
+    <Content Include="osprey-mock-service\examples\GetBillPDF.json" />
+    <Content Include="osprey-mock-service\examples\GetBirthdayById.json" />
+    <Content Include="osprey-mock-service\examples\GetBranchList.json" />
+    <Content Include="osprey-mock-service\examples\GetCashAdvanceApplyInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetContactInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetCustomerInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetDAWHOInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetDisplayCardList.json" />
+    <Content Include="osprey-mock-service\examples\GetEasyChoiceData.json" />
+    <Content Include="osprey-mock-service\examples\GetEBillInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetInstallmentAgreementStatus.json" />
+    <Content Include="osprey-mock-service\examples\GetInstallmentData.json" />
+    <Content Include="osprey-mock-service\examples\GetPermanentCreditInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetPermanentCreditInfo2.json" />
+    <Content Include="osprey-mock-service\examples\GetResendBillInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetResendPaperBillInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetStmtInstallmentData.json" />
+    <Content Include="osprey-mock-service\examples\GetTemporaryCreditInfo.json" />
+    <Content Include="osprey-mock-service\examples\GetVipValidationInfo.json" />
+    <Content Include="osprey-mock-service\examples\GiftCardHistory.json" />
+    <Content Include="osprey-mock-service\examples\GiftExchange.json" />
+    <Content Include="osprey-mock-service\examples\Gifts.json" />
+    <Content Include="osprey-mock-service\examples\HanshinarenaCardTransfer.json" />
+    <Content Include="osprey-mock-service\examples\HasForeignCurrencyAccount.json" />
+    <Content Include="osprey-mock-service\examples\HouseLoanCardPermAdjApply.json" />
+    <Content Include="osprey-mock-service\examples\InstallmentApply.json" />
+    <Content Include="osprey-mock-service\examples\InstallmentApplyCheck.json" />
+    <Content Include="osprey-mock-service\examples\IsILoanUser.json" />
+    <Content Include="osprey-mock-service\examples\KeepSessionAlive.json" />
+    <Content Include="osprey-mock-service\examples\LatestTx.json" />
+    <Content Include="osprey-mock-service\examples\LoginForBonusReward.json" />
+    <Content Include="osprey-mock-service\examples\MemberCards.json" />
+    <Content Include="osprey-mock-service\examples\MemberRegister.json" />
+    <Content Include="osprey-mock-service\examples\MemberRegisterCheck.json" />
+    <Content Include="osprey-mock-service\examples\Member\AuthOtherBankAccount.json" />
+    <Content Include="osprey-mock-service\examples\Member\PersonalMessages.json" />
+    <Content Include="osprey-mock-service\examples\MobileStatement.json" />
+    <Content Include="osprey-mock-service\examples\MobileStatementAuth.json" />
+    <Content Include="osprey-mock-service\examples\MobileStatementBarCode.json" />
+    <Content Include="osprey-mock-service\examples\MobileStatementPDF.json" />
+    <Content Include="osprey-mock-service\examples\MobileStatementQRCode.json" />
+    <Content Include="osprey-mock-service\examples\MyData\MyDataDo.json" />
+    <Content Include="osprey-mock-service\examples\MyData\MyDataLogin.json" />
+    <Content Include="osprey-mock-service\examples\MyData\MyDataRegister.json" />
+    <Content Include="osprey-mock-service\examples\MyData\MyDataSerial.json" />
+    <Content Include="osprey-mock-service\examples\MyData\MyDataVerifyResult.json" />
+    <Content Include="osprey-mock-service\examples\OutstandingDetail.json" />
+    <Content Include="osprey-mock-service\examples\PermanentAdjustApply.json" />
+    <Content Include="osprey-mock-service\examples\PermanentAdjustApplyRecord.json" />
+    <Content Include="osprey-mock-service\examples\QueryAirportPickup.json" />
+    <Content Include="osprey-mock-service\examples\queryannualfee.json" />
+    <Content Include="osprey-mock-service\examples\QueryEMail.json" />
+    <Content Include="osprey-mock-service\examples\QueryMMALimitIntranetUsage.json" />
+    <Content Include="osprey-mock-service\examples\QueryMMAUserStatus.json" />
+    <Content Include="osprey-mock-service\examples\QueryMobile.json" />
+    <Content Include="osprey-mock-service\examples\QueryShortUrlByOriginalUrl.json" />
+    <Content Include="osprey-mock-service\examples\QuerySignedData.json" />
+    <Content Include="osprey-mock-service\examples\querystatus.json" />
+    <Content Include="osprey-mock-service\examples\QueryThirdPartySellFlag.json" />
+    <Content Include="osprey-mock-service\examples\recentbill.json" />
+    <Content Include="osprey-mock-service\examples\RequestAttorney.json" />
+    <Content Include="osprey-mock-service\examples\ResendBill.json" />
+    <Content Include="osprey-mock-service\examples\ResendPaperBill.json" />
+    <Content Include="osprey-mock-service\examples\sample.json" />
+    <Content Include="osprey-mock-service\examples\SendApplyInfo.json" />
+    <Content Include="osprey-mock-service\examples\ServerInfo.json" />
+    <Content Include="osprey-mock-service\examples\SetInstallmentAgreement.json" />
+    <Content Include="osprey-mock-service\examples\SignActivity.json" />
+    <Content Include="osprey-mock-service\examples\SingleCardInfo.json" />
+    <Content Include="osprey-mock-service\examples\SingleGift.json" />
+    <Content Include="osprey-mock-service\examples\sso.json" />
+    <Content Include="osprey-mock-service\examples\StatementDetail.json" />
+    <Content Include="osprey-mock-service\examples\StmtInstallmentApplyRecord.json" />
+    <Content Include="osprey-mock-service\examples\SuspendCheck.json" />
+    <Content Include="osprey-mock-service\examples\TemporaryCreditApplyRecord.json" />
+    <Content Include="osprey-mock-service\examples\TransferAccounts.json" />
+    <Content Include="osprey-mock-service\examples\TWZip3Code.json" />
+    <Content Include="osprey-mock-service\examples\UnbilledTx.pdf" />
+    <Content Include="osprey-mock-service\examples\UpdateEBill.json" />
+    <Content Include="osprey-mock-service\examples\UpdateEmail.json" />
+    <Content Include="osprey-mock-service\examples\UpdateMMAMemberData.json" />
+    <Content Include="osprey-mock-service\examples\UpdateThirdPartySellFlag.json" />
+    <Content Include="osprey-mock-service\examples\UploadFile.json" />
+    <Content Include="osprey-mock-service\examples\UploadFileCheckID.json" />
+    <Content Include="osprey-mock-service\examples\VerifyExpiryDate.json" />
+    <Content Include="osprey-mock-service\examples\VerifyOTP.json" />
+    <Content Include="osprey-mock-service\examples\VipValidation.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\CanApplyVirtaulCard.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\CheckVirtualCard.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\GetVirtualCardInfo.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\GetVirtualCardList.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\QueryVirtualCardInfo.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\VirtualCardActivation.json" />
+    <Content Include="osprey-mock-service\examples\VirtualCard\VirtualCardPermAdjApply.json" />
+    <Content Include="osprey-mock-service\examples\ws_breadcrumbs.json" />
+    <Content Include="osprey-mock-service\run.cmd" />
+    <Content Include="pd_online_account\js\jpreloader.min.securejs" />
+    <Content Include="pd_online_account\js\jquery-magnific-popup.min.securejs" />
+    <Content Include="pd_online_account\js\jquery-migrate.min.securejs" />
+    <Content Include="pd_online_account\js\jquery.lightbox_me.securejs" />
+    <Content Include="pd_online_account\js\jquery.min.securejs" />
+    <Content Include="pd_online_account\js\scripts.securejs" />
+    <Content Include="pd_online_account\js\splide.min.securejs" />
+    <Content Include="Scripts\jpreloader.min.securejs" />
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <Content Include="Scripts\jquery-magnific-popup.min.securejs" />
+    <Content Include="Scripts\jquery-migrate.min.securejs" />
+    <Content Include="Scripts\jquery.lightbox_me.securejs" />
+    <Content Include="Scripts\jquery.min.securejs" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ResendReturnedCard\Step1.cshtml" />
+    <Content Include="Views\ResendReturnedCard\Step2.cshtml" />
+    <Content Include="Views\ResendReturnedCard\Step3.cshtml" />
+    <Content Include="Views\ResendReturnedCard\Index.cshtml" />
+    <Content Include="Scripts\scripts.securejs" />
+    <Content Include="Scripts\splide.min.securejs" />
+    <Content Include="Views\ResendReturnedCard\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53439</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 套件。請啟用 NuGet 套件還原，以下載該套件。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

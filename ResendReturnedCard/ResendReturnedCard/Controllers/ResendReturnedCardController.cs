@@ -109,13 +109,11 @@ namespace ResendReturnedCard.Controllers
             ResponseApplyModel responseApplyModel = await _webApiInvoker.PostAsync<ResponseApplyModel>("http://localhost:3000/api/Apply/ResendReturnedCard", RequestApplyModel);
             if(responseApplyModel.ResultCode == "00")
             {
-                System.Diagnostics.Debug.WriteLine("1");
                 return RedirectToAction("Step3");
                 
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("2");
                 TempData["failMsg"] = "申請失敗";
                 return RedirectToAction("Step3");
             }
